@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Archivo Black", sans-serif;
+    }
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+header {
+    position: relative;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('../img/codigo-portada.jpg') center/cover no-repeat;
+    z-index: 0;
+    transition: filter 0.3s;
+    will-change: transform, filter;
+}
+
+header.scrolled::before {
+    filter: blur(3px) brightness(0.7);
+    transform: scale(1.05) translateY(30px);
+}
+
+header > * {
+    position: relative;
+    z-index: 1;
+}
+.logo{
+    width: 20%;
+} 
+/* estilo de los enlaces */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-family: "Archivo Black", sans-serif;
+    padding: 8px 18px;
+    position: relative;
+    transition: color 0.3s;
+    letter-spacing: 1px;
+}
+
+nav ul li a::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: #ff9800;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: #ff9800;
+}
+
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+    width: 100%;
+}
+
+
+
+.presentacion {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: #a6bac2;
+    box-shadow: 0 4px 16px rgba(53, 152, 245, 0.15);
+    color: #2b373b;
+}   
+/* Carrusel básico */
+#carrusel-contenido {
+    width: 100%;
+    max-width: 70%;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(53, 152, 245, 0.5);
+    background: #a6bac2;
+}
+
+#carrusel-caja {
+    display: flex;
+    transition: transform 0.5s;
+}
+
+.carrusel-elemento {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 20px;
+    background: #9dc6f5;
+    box-shadow: 0 4px 16px rgba(53, 152, 245, 0.5);
+    padding: 20px 0;
+}
+
+.carrusel-elemento img {
+    max-width: 90%;
+    max-height: 300px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    object-fit: cover;
+}
+
+
+.carrusel-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5em 0.8em;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+.carrusel-flecha.izquierda {
+    left: 15px;
+}
+
+.carrusel-flecha.derecha {
+    right: 15px;
+}
+
+#carrusel-contenido {
+    position: relative; /* Para posicionar las flechas */
+}
