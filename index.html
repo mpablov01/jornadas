@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" class="logo" alt="">
+        <h1 class="archivo-black-regular">Aplicaciones especificas en redes 2025</h1>
+        <h3 class="archivo-black-regular">6to año 2da - Escuela Tec. N°20 "Antonio Berni"</h3>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="presentacion">
+        <h2 class="archivo-black-regular">Bienvenidos a nuestra pagina web</h2>
+        <p>Estos son los alumnos de 6to 2da 2025 en Aplicaciones Especificas en Redes.</p>
+    <div id="carrusel-contenido">
+        <div id="carrusel-caja">
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                <img src="img/6to-2da.jpg" alt="Imagen 1">
+                <p>6to 2da 2025</p>
+                </a>
+
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/vela.png" alt="Imagen 2">
+                    <p>profe pablo</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/rocio adaro.jpg" alt="Imagen 2">
+                    <p>Rocio Adaro</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="https://kamecki-bruno.free.nf" target="_blank">
+                    <img src="img/kamecki.jpg" alt="Imagen 2">
+                    <p>Bruno Kamecki</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="https://taarsm18.free.nf/" target="_blank">
+                <img src="img/facuuuu.jpg" alt="Imagen 1">
+                <p>facundo Perez</p>
+                </a>
+
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/marianela agustina centeno.png" alt="Imagen 2">
+                    <p>Marianela Agustina Centeno</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/matias alcantaro.jpg" alt="Imagen 2">
+                    <p>Matias Alcántaro</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/axel gonzales.jpg" alt="Imagen 2">
+                    <p>Axel Gonzales</p>
+                </a>
+            </div><div class="carrusel-elemento">
+                <a href="https://milanesadep.ct.ws" target="_blank">
+                <img src="img/bastian olguin.png" alt="Imagen 1">
+                <p>Bastian Olguín</p>
+                </a>
+
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/flor rodriguez.webp" alt="Imagen 2">
+                    <p>Flor Rodríguez</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/rocio adaro.jpg" alt="Imagen 2">
+                    <p>Rocio Adaro</p>
+                </a>
+            </div>
+            <div class="carrusel-elemento">
+                <a href="../alquileres_mud1/index.html" target="_blank">
+                    <img src="img/kamecki.jpg" alt="Imagen 2">
+                    <p>Bruno Kamecki</p>
+                </a>
+            </div>
+        </div>
+        <button class="carrusel-flecha izquierda">&#10094;</button>
+        <button class="carrusel-flecha derecha">&#10095;</button>
+    </div>
+    </div>
+    
+<script>
+    // Animacion del header al hacer scroll
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if(window.scrollY > 30){
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+</script>
+<script>
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if(window.scrollY > 30){
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Carrusel automático y con flechas
+const carruselCaja = document.getElementById('carrusel-caja');
+const elementos = document.querySelectorAll('.carrusel-elemento');
+const total = elementos.length;
+let indice = 0;
+let intervalo;
+
+function mostrarCarrusel(i) {
+    carruselCaja.style.transform = `translateX(-${i * 100}%)`;
+}
+
+function siguiente() {
+    indice = (indice + 1) % total;
+    mostrarCarrusel(indice);
+}
+
+function anterior() {
+    indice = (indice - 1 + total) % total;
+    mostrarCarrusel(indice);
+}
+
+document.querySelector('.carrusel-flecha.derecha').onclick = function() {
+    siguiente();
+    reiniciarIntervalo();
+};
+document.querySelector('.carrusel-flecha.izquierda').onclick = function() {
+    anterior();
+    reiniciarIntervalo();
+};
+
+function iniciarIntervalo() {
+    intervalo = setInterval(siguiente, 3000);
+}
+function reiniciarIntervalo() {
+    clearInterval(intervalo);
+    iniciarIntervalo();
+}
+
+iniciarIntervalo();
+</script>
+
+</body>
+</html>
